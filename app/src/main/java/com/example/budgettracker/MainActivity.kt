@@ -1,5 +1,6 @@
 package com.example.budgettracker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateDashboard()
+
+        binding.addTransaction.setOnClickListener {
+            val intent = Intent(this,AddTransactionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun updateDashboard(){
@@ -50,4 +56,5 @@ class MainActivity : AppCompatActivity() {
         binding.budget.text = "$ %.2f".format(budgetAmount)
         binding.expense.text = "$ %.2f".format(expenseAmount)
     }
+
 }
